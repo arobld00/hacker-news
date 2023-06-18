@@ -1,6 +1,7 @@
 import { Link } from 'wouter'
 import { useQuery } from 'react-query'
 import getItem from '../services/getItem'
+import { useStory } from "../hooks/useStory";
 
 export default function Story({ id, index }) {
   const { isLoading, isError, data, error } = useQuery(`/story/${id}`, () => getItem({ id }))
@@ -13,12 +14,7 @@ export default function Story({ id, index }) {
     return <span>Error: {error.message}</span>
   }
 
-  const { by, kids, score, title, url } = data
-
-  let domain = ''
-  try {
-    domain = new URL(url).hostname.replace('wwww.', '')
-  } catch { }
+  const { by, kids, score, title, url, domain } = useStory({ data })
 
   return (
     <article>
