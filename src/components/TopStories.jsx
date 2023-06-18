@@ -1,6 +1,8 @@
 import { useQuery } from 'react-query'
 import getTopStories from '../services/getTopStories'
 
+import Story from '../components/Story'
+
 export default function TopStories() {
   const { isLoading, isError, data, error } = useQuery('stories', () => getTopStories({ page: 1, limit: 5 }))
 
@@ -14,8 +16,10 @@ export default function TopStories() {
 
   return (
     <ul>
-      {data.map(item => (
-        <li key={item}>{item}</li>
+      {data?.map((id, index) => (
+        <li key={id}>
+          <Story id={id} index={index}></Story>
+        </li>
       ))}
     </ul>
   )

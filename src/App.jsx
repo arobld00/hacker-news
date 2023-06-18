@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react'
 import { QueryClient, QueryClientProvider, } from 'react-query'
+import './App.css'
 import Header from './Header'
 import { Route } from 'wouter'
 
