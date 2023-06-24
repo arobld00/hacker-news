@@ -4,8 +4,8 @@ import './App.css'
 import Header from './Header'
 import { Route } from 'wouter'
 
-const TopStories = lazy(() => import('./components/TopStories'))
-const Detail = lazy(() => import('./components/Detail'))
+const TopStories = lazy(() => import('./pages/TopStories'))
+const Detail = lazy(() => import('./pages/Detail'))
 
 const queryClient = new QueryClient()
 
